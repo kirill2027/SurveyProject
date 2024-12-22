@@ -1,0 +1,31 @@
+openapi: 3.0.0
+info:
+  title: Survey API
+  version: 1.0.0
+paths:
+  /api/survey:
+    post:
+      summary: Submit survey response
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SurveyResponse'
+      responses:
+        '200':
+          description: Response saved successfully
+components:
+  schemas:
+    SurveyResponse:
+      type: object
+      properties:
+        userId:
+          type: integer
+        questionId:
+          type: integer
+        answerText:
+          type: string
+        premium:
+          type: boolean
+          default: false
